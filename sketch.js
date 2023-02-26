@@ -81,16 +81,21 @@ function drawLeftBuffer() {
 
   function drawRightBuffer() {
 
-    
+    if (pose){
+  
+     let eyeR = pose.rightEye;
+     let eyeL = pose.leftEye;
+     let d = dist(eyeR.x, eyeR.y,eyeL.x, eyeL.y);
+
     rightBuffer.background(255, 100, 255);
     rightBuffer.fill(0, 0, 0);
      
       rightBuffer.textSize(20);
       rightBuffer.strokeWeight(1);
       rightBuffer.text('type to get started',10, 30 );
-  
+      
       push()
-          rightBuffer.textSize(200);
+          rightBuffer.textSize(d * 5);
           rightBuffer.strokeWeight(1);
           rightBuffer.text(key,200, 200);
          pop()
@@ -99,7 +104,7 @@ function drawLeftBuffer() {
     
     // rightBuffer.textSize(302);
     // rightBuffer.text(key,100, 100);
-    
+    }
   }
   
 // function draw() {
@@ -150,5 +155,3 @@ function drawLeftBuffer() {
 
 //   }
 // }
-
-
